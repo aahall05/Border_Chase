@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+ipch/
+*.obj
+*.exe
+*.pdb
+*.log
+*.tlog
+*.idb
+*.cache
+*.ilk
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+*.sbr
+*.scc
+Debug/
+Release/
+x64/
+x86/
+SFML_Progress/
