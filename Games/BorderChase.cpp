@@ -39,6 +39,9 @@ void BorderChase(sf::RenderWindow& window, sf::Vector2f windowDimensions)
 
     while (window.isOpen())
     {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+            break;
+
         sf::Time timeSinceLastFrame = clock.restart();
 
         while (const std::optional event = window.pollEvent())

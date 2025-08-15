@@ -20,11 +20,12 @@ int main()
     const sf::Vector2i& pos = gameWindow.getCenteredPosition();
     sf::Vector2f windowDimensions(window.getSize().x,window.getSize().y);
 
-    int level = 1;
     
     /*
         TODO:
-            1. make menu items clickable
+            1. add chevron
+                1a. make it move around character
+                1b. make it fire in direction of mouse
             2. 
             3. 
 
@@ -41,16 +42,6 @@ int main()
           
     */
     
-    switch (level)
-    {
-        case 1:
-            MainMenu(window, windowDimensions);
-            break;
-        case 2:
-            BorderChase(window, windowDimensions);
-            break;
-        default:
-            break;
-    }
+    MainMenu(window, windowDimensions);       
     
 }

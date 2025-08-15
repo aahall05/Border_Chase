@@ -16,33 +16,19 @@ void MainMenu(sf::RenderWindow& window, sf::Vector2f windowDimensions)
         std::cout << "font not loaded";
     }
 
-    // create menu tile
+    // create menu title
     sf::Text menuTitle(menuFont);
-    CreateText(menuTitle, "Main Menu", 100, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y / 3));
+    CreateText(menuTitle, "Border Chase", 150, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y / 3));
     
-    // create item and outline
-    sf::Text borderChase(menuFont);
-    CreateText(borderChase, "Border Chase", 50, sf::Color::White, sf::Vector2f(menuItemsX, menuTitle.getPosition().y + titleSize + (1 * padding)));
+    // create start button and outline
+    sf::Text startButton(menuFont);
+    CreateText(startButton, "Start", 100, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y - (windowDimensions.y / 3)));
     
-    sf::Text borderChaseOutline(menuFont);
-    CreateText(borderChaseOutline, "Border Chase", 50, sf::Color::Transparent, sf::Vector2f(menuItemsX, menuTitle.getPosition().y + titleSize + (1 * padding)));
-    borderChaseOutline.setOutlineColor(sf::Color::Red);
-    borderChaseOutline.setOutlineThickness(0.75f);
-    
-    // create item and outline
-    sf::Text optionTwo(menuFont);
-    CreateText(optionTwo, "Option Two", 50, sf::Color::White, sf::Vector2f(menuItemsX, borderChase.getPosition().y + optionSize + (2 * padding)));
-    sf::Text optionTwoOutline(menuFont);
-
-    CreateText(optionTwoOutline, "Option Two", 50, sf::Color::Transparent, sf::Vector2f(menuItemsX, borderChase.getPosition().y + optionSize + (2 * padding)));
-    optionTwoOutline.setOutlineColor(sf::Color::Red);
-    optionTwoOutline.setOutlineThickness(0.75f);
-
-    // store in array for display
-    sf::Text menuItems[2] = { borderChase, optionTwo };
-    
-
-
+    sf::Text startButtonOutline(menuFont);
+    CreateText(startButtonOutline, "Start", 100, sf::Color::Transparent, sf::Vector2f(menuItemsX, windowDimensions.y - (windowDimensions.y / 3)));
+    startButtonOutline.setOutlineColor(sf::Color::Red);
+    startButtonOutline.setOutlineThickness(0.75f);
+            
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -57,14 +43,14 @@ void MainMenu(sf::RenderWindow& window, sf::Vector2f windowDimensions)
         window.draw(menuTitle);
 
         // draw first option, check for hovering
-        window.draw(borderChase);
-        if (borderChaseOutline.getGlobalBounds().contains(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window))))
-            window.draw(borderChaseOutline);
-        // draw second option check for hovering
-        window.draw(optionTwo);
-        if (optionTwoOutline.getGlobalBounds().contains(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window))))
-            window.draw(optionTwoOutline);
-
+        window.draw(startButton);
+        if (startButtonOutline.getGlobalBounds().contains(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window))))
+        {
+            window.draw(startButtonOutline);
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+                BorderChase(window, windowDimensions);
+        }
+       
         window.display();
     }
 }
