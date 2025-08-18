@@ -7,8 +7,8 @@ void MainMenu(sf::RenderWindow& window, sf::Vector2f windowDimensions)
 
     sf::Font menuFont;
     int padding = 15;
-    int titleSize = 100;
-    int optionSize = 50;
+    int titleSize = 150;
+    int optionSize = 100;
 
     // load font
     if (!menuFont.openFromFile("Fonts/upheavtt.ttf"))
@@ -18,14 +18,14 @@ void MainMenu(sf::RenderWindow& window, sf::Vector2f windowDimensions)
 
     // create menu title
     sf::Text menuTitle(menuFont);
-    CreateText(menuTitle, "Border Chase", 150, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y / 3));
+    CreateText(menuTitle, "Border Chase", titleSize, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y / 3));
     
     // create start button and outline
     sf::Text startButton(menuFont);
-    CreateText(startButton, "Start", 100, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y - (windowDimensions.y / 3)));
+    CreateText(startButton, "Start", optionSize, sf::Color::White, sf::Vector2f(menuItemsX, windowDimensions.y - (windowDimensions.y / 3)));
     
     sf::Text startButtonOutline(menuFont);
-    CreateText(startButtonOutline, "Start", 100, sf::Color::Transparent, sf::Vector2f(menuItemsX, windowDimensions.y - (windowDimensions.y / 3)));
+    CreateText(startButtonOutline, "Start", optionSize, sf::Color::Transparent, sf::Vector2f(menuItemsX, windowDimensions.y - (windowDimensions.y / 3)));
     startButtonOutline.setOutlineColor(sf::Color::Red);
     startButtonOutline.setOutlineThickness(0.75f);
             

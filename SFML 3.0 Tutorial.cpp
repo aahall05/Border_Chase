@@ -19,18 +19,19 @@ int main()
     sf::RenderWindow& window = gameWindow.getWindow();
     const sf::Vector2i& pos = gameWindow.getCenteredPosition();
     sf::Vector2f windowDimensions(window.getSize().x,window.getSize().y);
+    
 
     
     /*
         TODO:
-            1. add chevron
-                1a. make it move around character
+            1. add chevron *check*
+                1a. make it point towards mouse
                 1b. make it fire in direction of mouse
-            2. 
-            3. 
+            2. make outline move
+            3. reset game when outline is caught
 
         Issues:
-            1.
+            1. 
 
         Ideas:
             1. sprint for a short amount of time with shift

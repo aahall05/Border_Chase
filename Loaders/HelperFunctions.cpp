@@ -7,7 +7,6 @@ void CreateText(sf::Text& item, std::string label, int size, sf::Color color, sf
     item.setString(label);
     item.setCharacterSize(size);
     item.setFillColor(color);
-    item.setOutlineColor(sf::Color::Red);
     item.setPosition(position);
 
     // get bounding box of the text
@@ -29,3 +28,5 @@ bool isHovering(sf::Text& item, sf::Vector2f mousePostion)
     
     return item.getGlobalBounds().contains(mousePostion);
 }
+
+

@@ -21,9 +21,6 @@
     <ClCompile Include="Loaders\GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Loaders\SpriteHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Loaders\HelperFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,9 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Loaders\GameWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Loaders\SpriteHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Loaders\HelperFunctions.h">

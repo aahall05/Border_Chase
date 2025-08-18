@@ -2,32 +2,49 @@
 
 void BorderChase(sf::RenderWindow& window, sf::Vector2f windowDimensions)
 {
-    // sprite scale
+    // scale constants
     sf::Vector2f spriteScale(1, 1);
+    sf::Vector2f chevScale(0.5, 0.5);
 
     // load player texture
     sf::Texture playerTexture;
     std::string playerPath = "Images/playerFace.png";
     playerTexture.loadFromFile(playerPath);
 
-    // create sprite 
+    // create player sprite 
     sf::Sprite player(playerTexture);
-    // set position (for this instance the top left corner)
+    // get position (top left corner)
     sf::Vector2f playerPosition(sf::Vector2f((player.getTexture().getSize().x * spriteScale.x) / 2, (player.getTexture().getSize().y * spriteScale.y) / 2));
     // set position, scale, and origin
-    SpriteHandler::SpriteHandler(player, playerPosition, spriteScale);
+    scalePosOrig(player, playerPosition, spriteScale);
 
     // load enemy texture
     sf::Texture enemyTexture;
     std::string enemyPath = "Images/playerFace_outline.png";
     enemyTexture.loadFromFile(enemyPath);
 
-    // create sprite
+    // create enemy sprite
     sf::Sprite enemy(enemyTexture);
-    // set position (center of screen)
+    // get position (center of screen)
     sf::Vector2f enemyPosition(windowDimensions.x / 2, windowDimensions.y / 2);
     // set position, scale, and origin
-    SpriteHandler::SpriteHandler(enemy, enemyPosition, spriteScale);
+    scalePosOrig(enemy, enemyPosition, spriteScale);
+
+    // load chevron texture
+    sf::Texture chevronTexture;
+    std::string chevronPath = "Images/chevron.png";
+    chevronTexture.loadFromFile(chevronPath);
+
+    // create chevron sprite
+    sf::Sprite chevronSprite(chevronTexture);
+    sf::Vector2f chevPosition(playerPosition.x, playerPosition.y + 50);
+    
+    chevronSprite.setScale(chevScale);
+    chevronSprite.setOrigin(sf::Vector2f(chevronSprite.getTexture().getSize().x / 2, chevronSprite.getTexture().getSize().y / 2));
+    chevronSprite.setColor(sf::Color::Green);
+    // set distance from sprite using half of sprite radius plus some padding
+    sf::Vector2f chevRadius((player.getTexture().getSize().x * spriteScale.x / 2) + 20, (player.getTexture().getSize().y * spriteScale.y / 2) + 20);
+    
 
     // clock for controlled movement
     sf::Clock clock;
@@ -80,9 +97,23 @@ void BorderChase(sf::RenderWindow& window, sf::Vector2f windowDimensions)
         }
 
         player.move(vRequestedPlayerMovement * timeSinceLastFrame.asSeconds() * speed);
+
+        // get mouse position
+        sf::Vector2f vMousePosition = (sf::Vector2f)sf::Mouse::getPosition(window);
+        // get vector from sprite to cursor
+        sf::Vector2f vPlayerToChev = vMousePosition - player.getPosition();
+        
+        chevronSprite.setPosition(player.getPosition() + vPlayerToChev.normalized().componentWiseMul(chevRadius));
+        
+        chevronSprite.setRotation(sf::degrees(180));
+        
+        //std::cout << player.getPosition().angleTo(vMousePosition).asDegrees() << ", ";
+
+
         window.clear();
         window.draw(player);
         window.draw(enemy);
+        window.draw(chevronSprite);
         window.display();
 
     }
