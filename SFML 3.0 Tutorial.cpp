@@ -1,11 +1,8 @@
 
 #include "Loaders/GameWindow.h"
-#include "Loaders/SpriteHandler.h"
 #include "Loaders/HelperFunctions.h"
 #include "Games/MainMenu.h"
 #include "Games/BorderChase.h"
-
-
 
 
 #include <iostream>
@@ -24,11 +21,9 @@ int main()
     
     /*
         TODO:
-            1. add chevron *check*
-                1a. make it point towards mouse
-                1b. make it fire in direction of mouse
-            2. make outline move
-            3. reset game when outline is caught
+            1. make outline move
+            2. reset game when outline is caught
+            3. make player shoot
 
         Issues:
             1. 
@@ -36,10 +31,14 @@ int main()
         Ideas:
             1. sprint for a short amount of time with shift
             2. powerups appearing for a short amount of time
+                Powerup Ideas
+                a. make shadow larger so you can fit in easier
+                b. slow shadow down
+                c. make shadow move towards you
             3. aim and shoot powerups with mouse click
-            4. have shadow make it harder to fit in
-                4a. shadow gets smaller/larger
-                4b. shadow rotates (would require player to be able to rotate head)
+            4. have shadow make it harder or easier to fit in
+                a. shadow gets smaller/larger
+                b. shadow rotates (would require player to be able to rotate head)
           
     */
     

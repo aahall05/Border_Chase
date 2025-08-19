@@ -16,12 +16,6 @@ void CreateText(sf::Text& item, std::string label, int size, sf::Color color, sf
     item.setOrigin(sf::Vector2f(textRect.position.x + textRect.size.x / 2.0f, textRect.position.y + textRect.size.y / 2.0f));
 }
 
-void scalePosOrig(sf::Sprite& sprite, sf::Vector2f position, sf::Vector2f scale)
-{
-    sprite.setPosition(position);
-    sprite.setScale(scale);
-    sprite.setOrigin(sf::Vector2f(sprite.getTexture().getSize().x / 2, sprite.getTexture().getSize().y / 2));
-}
 
 bool isHovering(sf::Text& item, sf::Vector2f mousePostion)
 {
