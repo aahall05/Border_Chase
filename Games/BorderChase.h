@@ -20,4 +20,4 @@ void scalePosOrig(sf::Sprite& sprite, sf::Vector2f position, sf::Vector2f scale)
 
 sf::Vector2f PlayerMovement(sf::Sprite& player, sf::Vector2f& minPlayableArea, sf::Vector2f& maxPlayableArea);
 float ChevRotation(sf::RenderWindow& window, sf::Sprite& player, sf::Sprite& chevronSprite, sf::Vector2f chevRadius);
-sf::Vector2f EnemyMovement(sf::Vector2f position, sf::Vector2f direction);
+sf::Vector2f EnemyMovement(sf::Vector2f position, sf::Vector2f direction, sf::Vector2f& minPlayableArea, sf::Vector2f& maxPlayableArea);
