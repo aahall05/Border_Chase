@@ -75,7 +75,7 @@ void BorderChase(sf::RenderWindow& window, sf::Vector2f windowDimensions)
         player.move(PlayerMovement(player, minPlayableArea_player, maxPlayableArea_player) * timeSinceLastFrame.asSeconds() * (playerSpeed + sprint));
         // rotate chevron
         chevronSprite.setRotation(sf::radians(ChevRotation(window, player, chevronSprite, chevRadius)));
-
+        // move enemy
         enemyDirection = EnemyMovement(enemy.getPosition(), enemyDirection, minPlayableArea_enemy, maxPlayableArea_enemy);
         enemy.move(enemyDirection * timeSinceLastFrame.asSeconds() * enemySpeed);
 
